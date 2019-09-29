@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cimc.mapper.ProductInfoMapper">
+    <resultMap id="productInfoMap" type="ProductInfo">
+        <id column="id" property="id"/>
+        <result column="product_name" property="productName"></result>
+        <result column="category_id" property="categoryId"></result>
+        <result column="category_name" property="categoryName"></result>
+        <result column="branch_id" property="branchId"></result>
+        <result column="branch_name" property="branchName"></result>
+        <result column="shop_id" property="shopId"></result>
+        <result column="shop_name" property="shopName"></result>
+        <result column="price" property="price"></result>
+        <result column="stock" property="stock"></result>
+        <result column="sales_num" property="salesNum"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="update_time" property="updateTime"></result>
+        <result column="is_del" property="isDel"></result>
+    </resultMap>
+
+    <select id="getProductList" resultMap="productInfoMap" parameterType="java.util.Map">
+        SELECT *
+        FROM product_info
+        LIMIT #{offset},#{limit}
+    </select>
+
+</mapper>
